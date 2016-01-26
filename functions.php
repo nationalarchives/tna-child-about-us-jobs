@@ -5,16 +5,15 @@
 function tnatheme_globals() {
     global $tnatheme;
     $tnatheme['ischildsite'] = 1;
-    $tnatheme['childsitename'] = '{CHILD SITE NAME}';
+    $tnatheme['childsitename'] = 'Jobs';
     if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
         $tnatheme['subsitepath'] = '';
         $tnatheme['subsitepatharr'] = array();
     } else {
-        $tnatheme['subsitepath'] = '{PATH TO SUBSITE - relative to root and no trailing slash}';
+        $tnatheme['subsitepath'] = '/about/jobs';
         /* array containing the path to the root with trailing slash - example below */
         $tnatheme['subsitepatharr'] = array(
-            'About us' => '/about/',
-            'Our role' => '/about/our-role/'
+            'About us' => '/about/'
         );
     }
 }

@@ -10,3 +10,7 @@ License:        GNU General Public License
 License URI:    license.txt
 Text Domain:    tna
 */
+
+.jobs-opportunities-landing-page {
+    background: #fff url("http://www.nationalarchives.gov.uk/images/about/commercial-opportunities-landing-image.jpg") no-repeat top center;
+}

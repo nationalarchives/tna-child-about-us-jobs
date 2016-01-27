@@ -1,4 +1,23 @@
 <?php
+/* DEFINE SITE VARIABLES
+*/
+
+function tnatheme_globals() {
+    global $tnatheme;
+    $tnatheme['ischildsite'] = 1;
+    $tnatheme['childsitename'] = 'Jobs and opportunities';
+    if (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
+        $tnatheme['subsitepath'] = '';
+        $tnatheme['subsitepatharr'] = array();
+    } else {
+        $tnatheme['subsitepath'] = '/about/jobs';
+        /* array containing the path to the root with trailing slash - example below */
+        $tnatheme['subsitepatharr'] = array(
+            'About us' => '/about/'
+        );
+    }
+}
+tnatheme_globals();
 /*
  *
  * ================================================================================================
@@ -34,9 +53,6 @@ add_action('admin_menu','remove_page_metaboxes');
 
 
 function education_resource_init () {
-	// remove
-}
-function my_add_excerpts_to_pages () {
 	// remove
 }
 function create_post_type () {

@@ -36,4 +36,32 @@ function set_theme_capabilities() {
 }
 add_action ( 'admin_init', 'set_theme_capabilities' );
 
-?>
+
+// Adds page hide snippet from Google Optimize to <head> for A/B testing. Note: Only adds it to the front-page
+function ab_test_page_hide() {
+
+	if(is_front_page()) {
+
+	?>
+	<!-- Page hiding snippet (recommended) -->
+	<style>.async-hide {
+			opacity: 0 !important
+		} </style>
+	<script>
+        (function (a, s, y, n, c, h, i, d, e) {
+            s.className += ' ' + y;
+            h.end = i = function () {
+                s.className = s.className.replace(RegExp(' ?' + y), '')
+            };
+            (a[n] = a[n] || []).hide = h;
+            setTimeout(function () {
+                i();
+                h.end = null
+            }, c);
+        })(window, document.documentElement, 'async-hide', 'dataLayer', 4000, {'GTM-T8DSWV': true});
+	</script>
+
+	<?php
+    }
+}
+add_action('wp_head', 'ab_test_page_hide');

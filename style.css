@@ -12,3 +12,17 @@ Text Domain:    tna
 Domain Path:    /languages/
 */
 
+.standfirst {
+    font-family: 'Bitter', sans-serif;
+    font-size: 1.2em;
+    letter-spacing: -0.4px;
+}
+figure img {
+    margin: 20px 0 0 0;
+}
+@media screen and (min-width: 1024px) {
+    figure img {
+        margin: 0 0 0 3%;
+        width: 97%;
+    }
+}

@@ -1,29 +1,11 @@
-<?php 
+<?php
 
-function tnatheme_globals() {
-	global $pre_path;
-	global $pre_crumbs;
-    if (isset($_SERVER['HTTP_X_NGINX_PROXY'])) {
-        $pre_crumbs = array(
-            'About us' => '/about/',
-            'Jobs and opportunities' => '/about/jobs/'
-        );
-        $pre_path = '/about/jobs';
-    } elseif (substr($_SERVER['REMOTE_ADDR'], 0, 3) === '10.') {
-		$pre_path = '';
-		$pre_crumbs = array(
-				'Jobs and opportunities' => '/'
-			);
-	} else {
-		$pre_crumbs = array(
-				'About us' => '/about/',
-				'Jobs and opportunities' => '/about/jobs/'
-			);
-		$pre_path = '/about/jobs';
-	}
-}
-tnatheme_globals();
+require_once 'inc/setThemeGlobals.php';
+require_once 'inc/identifyEnvironmentFromIP.php';
 
+// For Breadcrumbs and URLs
+$environment = identifyEnvironmentFromIP($_SERVER['SERVER_ADDR'], $_SERVER['REMOTE_ADDR']);
+setThemeGlobals($environment);
 
 function set_theme_capabilities() {
 	$role = get_role( 'author' );

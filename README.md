@@ -1,1 +1,1 @@
-#Jobs chid theme template
+#Jobs child theme template
